@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
+
+<ImageView
+    android:id="@+id/circle"
+    android:layout_width="50dp"
+    android:layout_height="50dp"
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="12dp"
+    android:layout_marginBottom="10dp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    android:src="@drawable/ic_baseline_circle_24"/>
+
+<TextView
+    android:id="@+id/item_meeting_name"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textSize="18sp"
+    android:textColor="@color/black"
+    android:layout_marginStart="10dp"
+    android:textStyle="bold"
+    tools:text="Réunion A"
+    app:layout_constraintBottom_toBottomOf="@+id/circle"
+    app:layout_constraintStart_toEndOf="@+id/circle"
+    app:layout_constraintTop_toTopOf= "@+id/circle"
+    />
+
+<ImageView
+    android:layout_width="10dp"
+    android:layout_height="10dp"
+    android:layout_marginStart="4dp"
+    app:layout_constraintBottom_toBottomOf="@+id/item_meeting_name"
+    app:layout_constraintStart_toEndOf="@+id/item_meeting_name"
+    app:layout_constraintTop_toTopOf="@+id/item_meeting_name"
+    android:src="@drawable/ic_baseline_horizontal_rule_24" />
+
+    <TextView
+        android:id="@+id/item_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:layout_marginStart="18dp"
+        android:textStyle="bold"
+        tools:text="15h00"
+        app:layout_constraintBottom_toBottomOf= "@+id/item_meeting_name"
+        app:layout_constraintStart_toEndOf= "@+id/item_meeting_name"
+        app:layout_constraintTop_toTopOf= "@+id/item_meeting_name"
+        />
+
+    <ImageView
+        android:layout_width="10dp"
+        android:layout_height="10dp"
+        android:layout_marginStart="4dp"
+        app:layout_constraintBottom_toBottomOf= "@+id/item_time"
+        app:layout_constraintStart_toEndOf="@+id/item_time"
+        app:layout_constraintTop_toTopOf= "@+id/item_time"
+        android:src="@drawable/ic_baseline_horizontal_rule_24" />
+
+    <TextView
+        android:id="@+id/item_room_meeting_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:layout_marginStart="18dp"
+        android:textStyle="bold"
+        tools:text="Peach"
+        app:layout_constraintBottom_toBottomOf="@+id/item_time"
+        app:layout_constraintStart_toEndOf="@+id/item_time"
+        app:layout_constraintTop_toTopOf= "@+id/item_time"
+        />
+
+
+    <ImageButton
+        android:id="@+id/item_list_delete_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:background="@null"
+        app:layout_constraintBottom_toBottomOf= "@+id/item_room_meeting_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf= "@+id/item_room_meeting_name"
+        android:src="@drawable/ic_baseline_delete_24"/>
+
+    <TextView
+        android:id="@+id/item_meeting_mail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:textColor="@color/black"
+        android:layout_marginStart="10dp"
+        tools:text="renel@gmail.com, fabrice@gmail.com"
+        android:layout_marginTop="36dp"
+        app:layout_constraintStart_toEndOf="@+id/circle"
+        app:layout_constraintTop_toTopOf= "@+id/circle"
+        />
+
+
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
