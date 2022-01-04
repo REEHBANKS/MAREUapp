@@ -9,7 +9,7 @@ public interface MeetingApiService {
 
     // Get all my Meeting
 
-    List<Meeting> getMeeting();
+    List<Meeting> getMeetings();
 
     // Delete a Meeting
 

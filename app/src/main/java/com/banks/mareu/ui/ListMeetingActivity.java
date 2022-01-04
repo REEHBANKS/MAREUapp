@@ -1,22 +1,26 @@
 package com.banks.mareu.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
-import com.banks.mareu.R;
 import com.banks.mareu.databinding.ActivityListMeetingBinding;
 import com.banks.mareu.model.Meeting;
+import com.banks.mareu.service.DummyMeetingApiService;
 import com.banks.mareu.service.MeetingApiService;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class ListMeetingActivity extends AppCompatActivity {
 
-    public MeetingApiService mMeetingApiService;
+
+
+    public MeetingApiService mMeetingApiService = new DummyMeetingApiService();
     ActivityListMeetingBinding binding;
+    MeetingRecyclerViewAdapter mAdapter;
+    List<Meeting> mMeetings;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,10 +28,16 @@ public class ListMeetingActivity extends AppCompatActivity {
 
         binding = ActivityListMeetingBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        binding.listMeeting.setLayoutManager(new LinearLayoutManager(this));
-        mMeetingApiService.getMeeting();
+        initUi();
 
     }
 
+    public void initUi(){
+          mMeetings = mMeetingApiService.getMeetings();
+          mAdapter = new MeetingRecyclerViewAdapter(mMeetings);
+          binding.listMeeting.setAdapter(mAdapter);
+
+
+    }
 
 }

@@ -19,7 +19,8 @@ public class MeetingRecyclerViewAdapter extends RecyclerView.Adapter<MeetingRecy
 
 
 
-    public MeetingRecyclerViewAdapter(List<Meeting> meeting) {
+    public MeetingRecyclerViewAdapter(List<Meeting> meeting)
+    {
         mMeeting = meeting;
     }
 
@@ -37,7 +38,7 @@ public class MeetingRecyclerViewAdapter extends RecyclerView.Adapter<MeetingRecy
     public void onBindViewHolder( MeetingRecyclerViewAdapter.MeetingHolder holder, int position) {
         Meeting meeting = mMeeting.get(position);
         holder.binding.itemMeetingName.setText(meeting.getMeetingName());
-        holder.binding.itemTime.setText((CharSequence) meeting.getDate());
+//        holder.binding.itemTime.setText((CharSequence) meeting.getDate());
         holder.binding.itemRoomMeetingName.setText(meeting.getRoomName());
         holder.binding.itemMeetingMail.setText(meeting.getMail());
 

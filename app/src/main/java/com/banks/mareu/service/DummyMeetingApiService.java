@@ -9,7 +9,7 @@ public class DummyMeetingApiService implements MeetingApiService {
     private final List<Meeting> meetings = DummyMeetingGenerator.generateNeighbours();
 
     @Override
-    public List<Meeting> getMeeting() {
+    public List<Meeting> getMeetings() {
         return meetings;
     }
 

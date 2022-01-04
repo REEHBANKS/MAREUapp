@@ -77,5 +77,11 @@ import java.util.Calendar;
         public void setDate(Calendar date) { this.date = date;
         }
 
+        //public String getStringDate (){}
+
+
+
+
+
 
     }
