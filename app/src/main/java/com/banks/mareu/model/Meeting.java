@@ -1,7 +1,9 @@
 package com.banks.mareu.model;
 
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Locale;
 
 /**
      * Model object representing a Meeting
@@ -27,6 +29,8 @@ import java.util.Calendar;
 
         /** Date */
         private Calendar date;
+
+
 
 
 
@@ -77,11 +81,13 @@ import java.util.Calendar;
         public void setDate(Calendar date) { this.date = date;
         }
 
-        //public String getStringDate (){}
+        public String getStringDate (){
+            SimpleDateFormat sdf = new SimpleDateFormat( "HH:mm", Locale.UK);
+            return sdf.format(date.getTime());
+
+     }
 
 
 
 
-
-
-    }
+}
