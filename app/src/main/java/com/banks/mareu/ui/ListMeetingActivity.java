@@ -1,13 +1,12 @@
 package com.banks.mareu.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
+import di.DI;
 import com.banks.mareu.databinding.ActivityListMeetingBinding;
 import com.banks.mareu.model.Meeting;
-import com.banks.mareu.service.DummyMeetingApiService;
 import com.banks.mareu.service.MeetingApiService;
 
 import java.util.List;
@@ -16,7 +15,7 @@ public class ListMeetingActivity extends AppCompatActivity {
 
 
 
-    public MeetingApiService mMeetingApiService = new DummyMeetingApiService();
+    public MeetingApiService mMeetingApiService;
     ActivityListMeetingBinding binding;
     MeetingRecyclerViewAdapter mAdapter;
     List<Meeting> mMeetings;
@@ -28,6 +27,7 @@ public class ListMeetingActivity extends AppCompatActivity {
 
         binding = ActivityListMeetingBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        mMeetingApiService = DI.getMeetingApiService();
         initUi();
 
     }
