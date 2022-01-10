@@ -41,7 +41,7 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense.ExposedDropdownMenu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="60dp"
+            android:layout_marginStart="55dp"
             android:layout_marginTop="32dp"
             android:layout_marginEnd="32dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -64,13 +64,23 @@
         </com.google.android.material.textfield.TextInputLayout>
 
 
+        <EditText
+            android:id="@+id/editText1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="50dp"
+            android:ems="5"
+            android:hint="Enter Date" />
+
+
 
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/mailParticipant"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="50dp"
             android:textColorHint="@color/black"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
@@ -96,7 +106,7 @@
             android:layout_gravity="center"
             app:cornerRadius="20dp"
             android:background="@drawable/btn_mareu"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="80dp"
             android:textColor="@color/black"
             android:text="Save"/>
 
