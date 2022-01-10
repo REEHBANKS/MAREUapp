@@ -3,12 +3,14 @@ package com.banks.mareu.ui;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.banks.mareu.R;
@@ -62,6 +64,28 @@ public class AddMeetingActivity extends AppCompatActivity {
                 picker.show();
             }
         });
+
+        binding.editText2.setInputType(InputType.TYPE_NULL);
+        binding.editText2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final Calendar cldr = Calendar.getInstance();
+                int hour = cldr.get(Calendar.HOUR_OF_DAY);
+                int minutes = cldr.get(Calendar.MINUTE);
+                // time picker dialog
+                TimePickerDialog picker;
+                picker = new TimePickerDialog(AddMeetingActivity.this,
+                        new TimePickerDialog.OnTimeSetListener() {
+                            @Override
+                            public void onTimeSet(TimePicker tp, int sHour, int sMinute) {
+                                binding.editText2.setText(sHour + ":" + sMinute);
+                            }
+                        }, hour, minutes, true);
+                picker.show();
+
+            }
+        });
+
 
     }
 }
