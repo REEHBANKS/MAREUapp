@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/mareu_add"
+    android:background="@color/white"
     tools:context=".ui.AddMeetingActivity">
 
     <LinearLayout
@@ -21,34 +21,47 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="80dp"
-            android:textColorHint="@color/detail1"
+            android:textColorHint="@color/black"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/et_mareu"
+                android:background="#C6CECC"
                 android:ems="10"
-                android:hint="Meeting name"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:hint="Meeting title"
                 android:inputType="text" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
 
-        <TextView
-            android:layout_width="wrap_content"
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense.ExposedDropdownMenu"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Room name"
-            android:textSize="16sp"
-            android:textColor="@color/detail1"
+            android:layout_marginStart="60dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" >
+
+            <AutoCompleteTextView
+                android:id="@+id/auto_complete"
+                android:layout_width="255dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                android:inputType="none"
+                android:text="Please, choose your room">
+
+            </AutoCompleteTextView>
 
 
-            />
-        <Spinner
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            />
+        </com.google.android.material.textfield.TextInputLayout>
 
 
 
@@ -58,13 +71,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="80dp"
-            android:textColorHint="@color/detail1"
+            android:textColorHint="@color/black"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/et_mareu"
+                android:background="#C6CECC"
                 android:lines="5"
                 android:minLines="5"
                 android:ems="10"
@@ -84,31 +97,11 @@
             app:cornerRadius="20dp"
             android:background="@drawable/btn_mareu"
             android:layout_marginTop="20dp"
-            android:textColor="@color/detail1"
+            android:textColor="@color/black"
             android:text="Save"/>
 
 
-
-
-
-
     </LinearLayout>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
