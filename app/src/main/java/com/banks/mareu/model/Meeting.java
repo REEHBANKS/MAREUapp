@@ -19,10 +19,7 @@ import java.util.Locale;
         private String meetingName;
 
         /** Room name */
-        private String roomName;
-
-        /** Room color */
-        private String roomColor;
+        private Room room;
 
         /** Mail */
         private String mail;
@@ -36,11 +33,10 @@ import java.util.Locale;
 
         /** Constructor*/
 
-        public Meeting (long id, String meetingName, String roomName, String roomColor, String mail, Calendar date ) {
+        public Meeting (long id, String meetingName, Room roomName, String mail, Calendar date ) {
             this.id = id;
             this.meetingName = meetingName;
-            this.roomName = roomName;
-            this.roomColor = roomColor;
+            this.room = roomName;
             this.mail = mail;
             this.date = date;
         }
@@ -57,16 +53,10 @@ import java.util.Locale;
         public void setMeetingName(String meetingName) { this.meetingName = meetingName;
         }
 
-        public String getRoomName() { return roomName;
+        public Room getRoom() { return room;
         }
 
-        public void setRoomName(String roomName) { this.roomName = roomName;
-        }
-
-        public String getRoomColor() { return roomColor;
-        }
-
-        public void setRoomColor(String roomColor) { this.roomColor = roomColor;
+        public void setRoom(Room room) { this.room = room;
         }
 
         public String getMail() { return mail;
@@ -82,7 +72,7 @@ import java.util.Locale;
         }
 
         public String getStringDate (){
-            SimpleDateFormat sdf = new SimpleDateFormat( "HH:mm", Locale.UK);
+            SimpleDateFormat sdf = new SimpleDateFormat( "HH:mm", Locale.FRANCE);
             return sdf.format(date.getTime());
 
      }

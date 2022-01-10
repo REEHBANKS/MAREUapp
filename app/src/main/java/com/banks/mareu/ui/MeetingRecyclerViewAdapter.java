@@ -1,15 +1,15 @@
 package com.banks.mareu.ui;
 
+import android.graphics.Color;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.banks.mareu.R;
 import com.banks.mareu.databinding.ItemMeetingBinding;
 import com.banks.mareu.model.Meeting;
+import com.banks.mareu.model.Room;
 
 import java.util.List;
 
@@ -39,8 +39,10 @@ public class MeetingRecyclerViewAdapter extends RecyclerView.Adapter<MeetingRecy
         Meeting meeting = mMeeting.get(position);
         holder.binding.itemMeetingName.setText(meeting.getMeetingName());
         holder.binding.itemTime.setText(meeting.getStringDate());
-        holder.binding.itemRoomMeetingName.setText(meeting.getRoomName());
+        holder.binding.itemRoomMeetingName.setText(meeting.getRoom().name());
         holder.binding.itemMeetingMail.setText(meeting.getMail());
+        int color = Color.parseColor(meeting.getRoom().color);
+        holder.binding.circle.setColorFilter(color);
 
     }
 
