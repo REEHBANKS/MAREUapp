@@ -103,11 +103,4 @@
         app:layout_constraintTop_toTopOf= "@+id/circle"
         />
 
-
-
-
-
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
