@@ -15,16 +15,21 @@ import android.widget.Toast;
 
 import com.banks.mareu.R;
 import com.banks.mareu.databinding.ActivityAddMeetingBinding;
+import com.banks.mareu.model.Meeting;
 import com.banks.mareu.model.Room;
+import com.banks.mareu.service.MeetingApiService;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 public class AddMeetingActivity extends AppCompatActivity {
 
-    ActivityAddMeetingBinding binding;
-    ArrayAdapter<Room> mAdapter;
-
-
+    private ActivityAddMeetingBinding binding;
+    public MeetingApiService mMeetingApiService;
+    public Meeting mMeeting;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,14 +37,15 @@ public class AddMeetingActivity extends AppCompatActivity {
         binding = ActivityAddMeetingBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        mAdapter = new ArrayAdapter<Room>(this, R.layout.room_item, Room.values());
-        binding.autoComplete.setAdapter(mAdapter);
+        ArrayAdapter<Room> adapter = new ArrayAdapter<Room>(this, R.layout.room_item, Room.values());
+        binding.autoComplete.setAdapter(adapter);
 
         binding.autoComplete.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                String item = adapterView.getItemAtPosition(i).toString();
-                Toast.makeText(getApplicationContext(), item, Toast.LENGTH_SHORT).show();
+                 String item = adapterView.getItemAtPosition(i).toString();
+
+
             }
         });
 
@@ -79,13 +85,45 @@ public class AddMeetingActivity extends AppCompatActivity {
                             @Override
                             public void onTimeSet(TimePicker tp, int sHour, int sMinute) {
                                 binding.editText2.setText(sHour + ":" + sMinute);
+
+                                String call = binding.editText2.getText().toString();
                             }
                         }, hour, minutes, true);
                 picker.show();
-
             }
         });
 
 
-    }
+
+        binding.create.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Calendar cal = Calendar.getInstance();
+                SimpleDateFormat sdf = new SimpleDateFormat("HH:mm", Locale.FRANCE);
+                try {
+                    cal.setTime(sdf.parse(binding.editText2.getText().toString()));
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
+                Meeting meeting = new Meeting(System.currentTimeMillis(),
+                binding.nameMeeting.getEditText().getText().toString(),
+                Room.valueOf(binding.autoComplete.getText().toString()),
+                binding.mailParticipant.getEditText().getText().toString(),
+                cal);
+
+                 mMeetingApiService.createMeeting(meeting);
+                 finish();
+
+
+
+            }
+        });
+
+        }
+
+
 }
+
+

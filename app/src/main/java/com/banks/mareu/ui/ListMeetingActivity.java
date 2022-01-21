@@ -21,6 +21,7 @@ public class ListMeetingActivity extends AppCompatActivity implements RecyclerVi
     ActivityListMeetingBinding binding;
     MeetingRecyclerViewAdapter mAdapter;
     List<Meeting> mMeetings;
+    private Meeting meeting;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,4 +53,12 @@ public class ListMeetingActivity extends AppCompatActivity implements RecyclerVi
         mMeetings.remove(meeting);
         mAdapter.notifyItemRemoved(position);
     }
+
+    public void onStart() {
+        super.onStart();
+        mMeetings.clear();
+        mMeetings.addAll(mMeetingApiService.getMeetings());
+        mAdapter.notifyDataSetChanged();
+    }
+
 }
