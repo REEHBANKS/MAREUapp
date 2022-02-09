@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Mareu</string>
+    <string name="error_date">Entrez une date</string>
+    <string name="error_time">Entrez une heure</string>
+    <string name="error_name_meeting">Entrez un nom de réunion</string>
+    <string name="error_address">Entrez une adresse mail</string>
+    <string name="error_room">Selectionner une salle</string>
+    <string name="Choose_room_meeting">Choisir la salle de réunion</string>
+    <string name="la_date">La date</string>
+    <string name="clear">CLEAR</string>
+    <string name="actived">ACTIVED</string>
+    <string name="salle_de_r_union">Salle </string>
 </resources>

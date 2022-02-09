@@ -13,6 +13,7 @@ import com.banks.mareu.databinding.ActivityListMeetingBinding;
 import com.banks.mareu.model.Meeting;
 import com.banks.mareu.service.MeetingApiService;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ListMeetingActivity extends AppCompatActivity implements RecyclerViewClickInterface {
@@ -20,7 +21,7 @@ public class ListMeetingActivity extends AppCompatActivity implements RecyclerVi
     public MeetingApiService mMeetingApiService;
     ActivityListMeetingBinding binding;
     MeetingRecyclerViewAdapter mAdapter;
-    List<Meeting> mMeetings;
+    ArrayList<Meeting> mMeetings;
     private Meeting meeting;
 
     @Override
@@ -34,15 +35,20 @@ public class ListMeetingActivity extends AppCompatActivity implements RecyclerVi
     }
 
     public void initUi() {
-        mMeetings = mMeetingApiService.getMeetings();
+        mMeetings = new ArrayList<>( mMeetingApiService.getMeetings());
         mAdapter = new MeetingRecyclerViewAdapter(mMeetings, this);
         binding.listMeeting.setAdapter(mAdapter);
 
-        binding.addMeeting.setOnClickListener(new View.OnClickListener() {
+        binding.addMeeting.setOnClickListener(view -> {
+            Intent otherActivity2 = new Intent(getApplicationContext(),AddMeetingActivity.class);
+            startActivity(otherActivity2);
+        });
+
+        binding.buttonFilter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent otherActivity2 = new Intent(getApplicationContext(),AddMeetingActivity.class);
-                startActivity(otherActivity2);
+                MyDialogFragment myDialogFragment = new MyDialogFragment();
+                myDialogFragment.show(getSupportFragmentManager(), "Filtre");
             }
         });
     }

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@null"
+    android:gravity="center"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/layout_pop"
+        android:padding="5dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+
+        android:padding="5dp">
+     <TextView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="Filtres"
+         android:textColor="@color/white"
+         android:textStyle="bold"
+         android:textSize="25dp" />
+
+    <TextView
+        android:id="@+id/back"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:textColor="@color/white"
+        android:text="X"
+        android:textStyle="bold"
+        android:layout_marginStart="220dp"
+        android:layout_marginBottom="5dp"
+        android:gravity="center"
+        android:background="@drawable/cerclebackground"/>
+
+    </LinearLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout"
+        style= "@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+        android:theme="@style/inputText"
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        app:startIconDrawable="@drawable/ic_baseline_meeting_room_24"
+        app:startIconTint="@color/white"
+        app:boxBackgroundColor="#D99FA0"
+        app:boxBackgroundMode="outline"
+
+        >
+
+        <AutoCompleteTextView
+            android:id="@+id/auto_complete_filter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/salle_de_r_union"
+            android:background="@null"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:layout_marginTop="20dp"
+            android:padding="20dp">
+
+        </AutoCompleteTextView>
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <EditText
+        android:id="@+id/date_edit_text_filter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:hint="__ /__ /____"
+        android:textColorHint="@color/white"
+        android:inputType="date"
+        android:drawableStart="@drawable/ic_baseline_calendar_month_24"
+        android:drawablePadding="5dp"
+        android:background="@drawable/buttondate"
+        android:ems="9"
+        android:gravity="center"
+        android:layout_gravity="center" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="20dp"
+        android:layout_marginTop="14dp">
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/clear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:text="@string/clear"
+        android:background="@drawable/buttonstyle"
+        android:textColor="@color/white" />
+
+        <androidx.appcompat.widget.AppCompatButton
+         android:id="@+id/button_actived_filter"
+         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/actived" android:background="@drawable/buttonstyle"
+            android:textColor="@color/white"
+            android:layout_marginStart="115dp"
+
+       />
+
+    </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

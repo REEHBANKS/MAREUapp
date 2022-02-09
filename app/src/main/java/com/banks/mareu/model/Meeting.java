@@ -12,9 +12,6 @@ import java.util.Locale;
     public class Meeting {
 
 
-        /** Identifier */
-        private long id;
-
         /** Meeting name */
         private String meetingName;
 
@@ -33,19 +30,14 @@ import java.util.Locale;
 
         /** Constructor*/
 
-        public Meeting (long id, String meetingName, Room roomName, String mail, Calendar date ) {
-            this.id = id;
+        public Meeting ( String meetingName, Room roomName, String mail, Calendar date ) {
+
             this.meetingName = meetingName;
             this.room = roomName;
             this.mail = mail;
             this.date = date;
         }
 
-        public long getId() { return id;
-        }
-
-        public void setId(long id) { this.id = id;
-        }
 
         public String getMeetingName() { return meetingName;
         }

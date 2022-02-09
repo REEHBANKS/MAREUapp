@@ -13,20 +13,21 @@ import java.util.Locale;
 public class DummyMeetingGenerator {
 
     public static List<Meeting> DUMMY_MEETING = Arrays.asList(
-            new Meeting(1, "Réunion A", Room.PEACH,  "maxime@lamzone.com, david@lamzone.com", Calendar.getInstance()),
-            new Meeting(2, "Réunion B", Room.MARIO,  "paul@lamzone.com, david@lamzone.com, didier@lamzone.com",Calendar.getInstance()),
-            new Meeting(3, "Réunion C", Room.GENO, "amandine@lamazone.com,francois@lamzone.com", Calendar.getInstance()),
-            new Meeting(4, "Réunion D", Room.DAISY , "franck@lamazone.com, francois@lamzone.com", Calendar.getInstance()),
-            new Meeting(5, "Réunion E", Room.GLUIGI, "emmanuel@lamzone.com,emmanuel@lamzone.com, didier@lamzone.com", Calendar.getInstance()),
-            new Meeting(6, "Réunion F", Room.TIARA, "francois@lamzone.com, leonard@lamzone.com", Calendar.getInstance()),
-            new Meeting(7, "Réunion G", Room.TOAD, "david@lamzone.com, francois@lamzone.com", Calendar.getInstance()),
-            new Meeting(8, "Réunion H", Room.YOSHI, "didier@lamzone.com,emmanuel@lamzone.com", Calendar.getInstance()),
-            new Meeting(9, "Réunion I", Room.LUIGI, "samuel@lamzone.com,francois@lamzone.com ", Calendar.getInstance()),
-            new Meeting(10, "Réunion J", Room.LUMA, "leonard@lamzone.com, francois@lamzone.com", Calendar.getInstance())
+            new Meeting( "Réunion A", Room.PEACH,  "maxime@lamzone.com, david@lamzone.com", Calendar.getInstance()),
+            new Meeting( "Réunion B", Room.MARIO,  "paul@lamzone.com, david@lamzone.com, didier@lamzone.com",Calendar.getInstance()),
+            new Meeting( "Réunion C", Room.GENO, "amandine@lamazone.com,francois@lamzone.com", Calendar.getInstance()),
+            new Meeting( "Réunion D", Room.DAISY , "franck@lamazone.com, francois@lamzone.com", Calendar.getInstance()),
+            new Meeting( "Réunion E", Room.GLUIGI, "emmanuel@lamzone.com,emmanuel@lamzone.com, didier@lamzone.com", Calendar.getInstance()),
+            new Meeting( "Réunion F", Room.TIARA, "francois@lamzone.com, leonard@lamzone.com", Calendar.getInstance()),
+            new Meeting( "Réunion G", Room.TOAD, "david@lamzone.com, francois@lamzone.com", Calendar.getInstance()),
+            new Meeting( "Réunion H", Room.YOSHI, "didier@lamzone.com,emmanuel@lamzone.com", Calendar.getInstance()),
+            new Meeting( "Réunion I", Room.LUIGI, "samuel@lamzone.com,francois@lamzone.com ", Calendar.getInstance()),
+            new Meeting( "Réunion J", Room.LUMA, "leonard@lamzone.com, francois@lamzone.com", Calendar.getInstance())
             );
 
     static List<Meeting> generateNeighbours() {
-        return new ArrayList<>(DUMMY_MEETING);
+
+        return DUMMY_MEETING;
     }
 
 

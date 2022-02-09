@@ -10,11 +10,12 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list_meeting"
         android:layout_width="match_parent"
-        android:layout_height= "0dp"
-        tools:listitem="@layout/item_meeting"
+        android:layout_height="0dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toTopOf="@+id/add_meeting"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent"
+        tools:listitem="@layout/item_meeting" />
+
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/add_meeting"
@@ -24,12 +25,25 @@
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="10sp"
         android:layout_marginBottom="10sp"
-        android:backgroundTint="#F4531F"
+        android:backgroundTint="#EA4A4A"
         android:baselineAlignBottom="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:src="@drawable/ic_add_croix"
         android:contentDescription="TODO" />
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_filter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#736D6C "
+        android:text="Filtre"
+        android:layout_marginStart="150dp"
+        android:layout_marginBottom="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/list_meeting" />
 
 
 

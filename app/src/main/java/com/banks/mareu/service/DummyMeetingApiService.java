@@ -2,11 +2,12 @@ package com.banks.mareu.service;
 
 import com.banks.mareu.model.Meeting;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class DummyMeetingApiService implements MeetingApiService {
 
-    private final List<Meeting> meetings = DummyMeetingGenerator.generateNeighbours();
+    private final ArrayList<Meeting> meetings = new ArrayList<>( DummyMeetingGenerator.generateNeighbours());
 
     @Override
     public List<Meeting> getMeetings() {
