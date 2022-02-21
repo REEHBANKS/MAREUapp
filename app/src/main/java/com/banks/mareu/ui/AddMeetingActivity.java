@@ -56,7 +56,6 @@ public class AddMeetingActivity extends AppCompatActivity {
         });
 
         binding.dateEditText.setInputType(InputType.TYPE_NULL);
-
         binding.dateEditText.setOnClickListener((View.OnClickListener) view -> {
             final Calendar cldr = Calendar.getInstance();
             int actualDay = cldr.get(Calendar.DAY_OF_MONTH);
@@ -105,6 +104,7 @@ public class AddMeetingActivity extends AppCompatActivity {
                 return;
             }
             Room roomSelected = Room.valueOf(binding.autoComplete.getText().toString());
+            Log.d("Renelle", "room" + roomSelected);
 
             // Get date & time
             String date = binding.dateEditText.getText().toString();

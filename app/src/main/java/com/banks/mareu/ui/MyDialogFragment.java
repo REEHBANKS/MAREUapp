@@ -4,19 +4,16 @@ import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.InputType;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatDialogFragment;
-import androidx.fragment.app.DialogFragment;
 
 import com.banks.mareu.R;
 import com.banks.mareu.databinding.DialogFragmentBinding;
@@ -30,9 +27,17 @@ import java.util.Objects;
 
 public class MyDialogFragment extends AppCompatDialogFragment {
 
+    private static final String TAG = "dialog";
     DialogFragmentBinding mDialogFragmentBinding;
     SimpleDateFormat dateSdfDialog = new SimpleDateFormat("dd/MM/yyyy", Locale.FRANCE);
 
+
+
+    public interface DataListener {
+        void confirmFilter(Room room, String calendarMeetingFilter);
+    }
+
+    public DataListener datalistener;
 
 
     @NonNull
@@ -46,7 +51,6 @@ public class MyDialogFragment extends AppCompatDialogFragment {
 
         ArrayAdapter<Room> adapter = new ArrayAdapter<Room>(getContext(), R.layout.room_item, Room.values());
         mDialogFragmentBinding.autoCompleteFilter.setAdapter(adapter);
-        mDialogFragmentBinding.autoCompleteFilter.setText(adapter.getItem(0).toString(), false);
         mDialogFragmentBinding.autoCompleteFilter.setThreshold(1);
 
 
@@ -74,14 +78,18 @@ public class MyDialogFragment extends AppCompatDialogFragment {
         mDialogFragmentBinding.buttonActivedFilter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Room roomSelected = Room.valueOf(mDialogFragmentBinding.autoCompleteFilter.getText().toString());
-                String date = mDialogFragmentBinding.dateEditTextFilter.getText().toString();
-                Calendar calendarMeetingFilter = Calendar.getInstance();
-                try {
-                    calendarMeetingFilter.setTime(Objects.requireNonNull(dateSdfDialog.parse(date )));
-                } catch (ParseException e) {
-                    e.printStackTrace();
+                Room room;
+                if(mDialogFragmentBinding.autoCompleteFilter.getText().toString().isEmpty()){
+                    room = null;
                 }
+                else {
+                    room =Room.valueOf(mDialogFragmentBinding.autoCompleteFilter.getText().toString());
+                }
+
+                String date = mDialogFragmentBinding.dateEditTextFilter.getText().toString();
+
+                datalistener.confirmFilter(room, date);
+                Objects.requireNonNull(getDialog()).dismiss();
 
             }
         });
@@ -108,5 +116,14 @@ public class MyDialogFragment extends AppCompatDialogFragment {
         return builder.create();
     }
 
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        try {
+            datalistener = (DataListener) getActivity();
+        } catch (ClassCastException e) {
+            Log.e(TAG, "onAttach: " + e.getMessage());
+        }
+    }
 
 }

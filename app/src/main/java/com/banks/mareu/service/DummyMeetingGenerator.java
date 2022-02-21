@@ -20,12 +20,13 @@ public class DummyMeetingGenerator {
             new Meeting( "Réunion E", Room.GLUIGI, "emmanuel@lamzone.com,emmanuel@lamzone.com, didier@lamzone.com", Calendar.getInstance()),
             new Meeting( "Réunion F", Room.TIARA, "francois@lamzone.com, leonard@lamzone.com", Calendar.getInstance()),
             new Meeting( "Réunion G", Room.TOAD, "david@lamzone.com, francois@lamzone.com", Calendar.getInstance()),
+            new Meeting( "Réunion Z", Room.YOSHI, "didier@lamzone.com,emmanuel@lamzone.com", Calendar.getInstance()),
             new Meeting( "Réunion H", Room.YOSHI, "didier@lamzone.com,emmanuel@lamzone.com", Calendar.getInstance()),
             new Meeting( "Réunion I", Room.LUIGI, "samuel@lamzone.com,francois@lamzone.com ", Calendar.getInstance()),
             new Meeting( "Réunion J", Room.LUMA, "leonard@lamzone.com, francois@lamzone.com", Calendar.getInstance())
             );
 
-    static List<Meeting> generateNeighbours() {
+    static List<Meeting> generateMeeting() {
 
         return DUMMY_MEETING;
     }

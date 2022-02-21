@@ -1,5 +1,6 @@
 package com.banks.mareu.ui;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.view.LayoutInflater;
@@ -41,7 +42,7 @@ public class MeetingRecyclerViewAdapter extends RecyclerView.Adapter<MeetingRecy
     }
 
     @Override
-    public void onBindViewHolder(MeetingRecyclerViewAdapter.MeetingHolder holder, int position) {
+    public void onBindViewHolder(MeetingRecyclerViewAdapter.MeetingHolder holder,  int position) {
         Meeting meeting = mMeeting.get(position);
         holder.binding.itemMeetingName.setText(meeting.getMeetingName());
         holder.binding.itemTime.setText(meeting.getStringDate());

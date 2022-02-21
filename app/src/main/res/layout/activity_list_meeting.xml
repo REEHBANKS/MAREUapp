@@ -4,8 +4,41 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     tools:context=".ui.ListMeetingActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/my_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="#4E92DF"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_centerVertical="true"
+                app:title="Ma réu"
+                app:titleTextColor="@color/white"
+                app:titleMarginStart="25dp" />
+
+            <ImageView
+                android:id="@+id/filter_toolbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/my_toolbar"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginEnd="25dp"
+                android:src="@drawable/filter_list_24" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list_meeting"
@@ -14,6 +47,7 @@
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toTopOf="@+id/add_meeting"
         app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="55dp"
         tools:listitem="@layout/item_meeting" />
 
 
@@ -31,21 +65,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:src="@drawable/ic_add_croix"
         android:contentDescription="TODO" />
-
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/button_filter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#736D6C "
-        android:text="Filtre"
-        android:layout_marginStart="150dp"
-        android:layout_marginBottom="15dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/list_meeting" />
-
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

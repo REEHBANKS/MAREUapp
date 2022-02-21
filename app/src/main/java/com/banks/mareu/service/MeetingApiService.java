@@ -7,17 +7,14 @@ import java.util.List;
 public interface MeetingApiService {
 
 
-    // Get all my Meeting
 
     List<Meeting> getMeetings();
 
-    // Delete a Meeting
-
     void deleteMeeting(Meeting meeting);
 
-    // Create a Meeting
-
     void createMeeting(Meeting meeting);
+
+
 
 
 
