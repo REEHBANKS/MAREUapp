@@ -51,6 +51,7 @@
         android:layout_marginTop="50dp"
         app:startIconDrawable="@drawable/ic_baseline_meeting_room_24"
         app:startIconTint="@color/white"
+        android:textColorHint="@color/white"
         app:boxBackgroundColor="#3A80CD"
         app:boxBackgroundMode="outline"
         android:outlineSpotShadowColor="@color/white"
@@ -79,16 +80,16 @@
         android:id="@+id/date_edit_text_filter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/white"
-        android:hint="@string/date_sign"
-        android:textColorHint="@color/white"
-        android:inputType="date"
+        android:layout_gravity="center"
+        android:background="@drawable/buttondate"
         android:drawableStart="@drawable/ic_baseline_calendar_month_24"
         android:drawablePadding="5dp"
-        android:background="@drawable/buttondate"
         android:ems="9"
         android:gravity="center"
-        android:layout_gravity="center" />
+        android:hint="@string/date_sign"
+        android:inputType="date"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white" />
 
     <LinearLayout
         android:layout_width="match_parent"

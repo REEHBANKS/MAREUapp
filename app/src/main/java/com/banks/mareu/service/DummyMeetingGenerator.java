@@ -26,6 +26,10 @@ public class DummyMeetingGenerator {
             new Meeting( "Réunion J", Room.LUMA, "leonard@lamzone.com, francois@lamzone.com", Calendar.getInstance())
             );
 
+
+    Calendar cal = Calendar.getInstance();
+    
+
     static List<Meeting> generateMeeting() {
 
         return DUMMY_MEETING;

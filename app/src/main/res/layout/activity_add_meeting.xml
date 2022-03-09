@@ -8,139 +8,153 @@
     tools:context=".ui.AddMeetingActivity">
 
     <LinearLayout
+        android:id="@+id/addPageMeeting"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:layout_marginStart="18dp"
         android:layout_marginEnd="18dp"
         android:gravity="center"
+        android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
+            android:id="@+id/tittleAddPageText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nouvelle réunion"
-            android:textSize="30sp"
             android:layout_marginTop="15dp"
-            android:textStyle="bold" >
+            android:text="Nouvelle réunion"
+            android:textColor="@color/black"
+            android:textSize="30sp"
+            android:textStyle="bold">
 
         </TextView>
 
         <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="60dp"
-            android:textColorHint="@color/black"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            android:layout_marginTop="40dp"
+            android:textColorHint="@color/black">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/nameMeeting"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#C6CECC"
+                android:background="#6DA7E6"
                 android:ems="10"
-                android:textColor="@color/black"
-                android:textColorHint="@color/black"
-                android:hint="Entrer le titre de la réunion"
-                android:inputType="text" />
+                android:hint="@string/meeting_name"
+                android:inputType="text"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
 
         <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense.ExposedDropdownMenu"
-            android:layout_width="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+            android:layout_width="230dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="55dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="50dp"
+            android:layout_marginTop="30dp"
+            android:textColorHint="@color/black"
+            app:boxBackgroundColor="#6DA7E6"
+            app:boxBackgroundMode="outline"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" >
+            app:layout_constraintTop_toTopOf="parent"
+            app:startIconDrawable="@drawable/ic_baseline_meeting_room_24"
+            app:startIconTint="@color/black">
 
             <AutoCompleteTextView
                 android:id="@+id/auto_complete"
-                android:layout_width="255dp"
-                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:hint="@string/salle_de_r_union"
+                android:inputType="none"
                 android:paddingTop="16dp"
                 android:paddingBottom="16dp"
-                android:inputType="none"
-                android:hint="@string/Choose_room_meeting">
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold">
 
             </AutoCompleteTextView>
 
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="center">
-
 
         <EditText
             android:id="@+id/date_edit_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="70dp"
-            android:layout_marginTop="50dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/frame_black"
+            android:backgroundTint="#6DA7E6"
+            android:drawableStart="@drawable/calendar_black"
+            android:drawablePadding="5dp"
+            android:ems="8"
             android:gravity="center"
-            android:ems="4"
-            android:hint="La date" />
+            android:hint="@string/date_sign"
+            android:inputType="date"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black" />
 
-            <EditText
-                android:id="@+id/time_edit_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="80dp"
-                android:layout_marginTop="50dp"
-                android:gravity="center"
-                android:ems="3"
-                android:hint="l'heure" />
-
-
-        </LinearLayout>
+        <EditText
+            android:id="@+id/time_edit_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/frame_black"
+            android:backgroundTint="#6DA7E6"
+            android:drawableStart="@drawable/ic_baseline_more_time_24"
+            android:drawablePadding="5dp"
+            android:ems="6"
+            android:gravity="center"
+            android:hint="@string/time_sign"
+            android:inputType="date"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black" />
 
 
         <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:textColorHint="@color/black"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+            android:layout_marginTop="40dp"
+            android:textColorHint="@color/black">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/mailParticipant"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#C6CECC"
-                android:lines="5"
-                android:minLines="5"
+                android:background="#6DA7E6"
                 android:ems="10"
-                android:hint=" Entrer les adresses mails des participants"
-                android:inputType="textMultiLine" />
+                android:hint="@string/mails_participants"
+                android:inputType="textMultiLine"
+                android:lines="5"
+                android:textStyle="bold"
+                android:minLines="5" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
 
-        <com.google.android.material.button.MaterialButton
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/create"
-            style="@style/Widget.MaterialComponents.Button"
-            android:layout_width="match_parent"
+            android:layout_width="200sp"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/teal_700"
             android:layout_gravity="center"
-            app:cornerRadius="20dp"
-            android:background="@drawable/btn_mareu"
-            android:layout_marginTop="80dp"
-            android:textColor="@color/white"
-            android:text="Ajouter"/>
+            android:layout_marginTop="60dp"
+            android:background="@drawable/buttonstyle"
+            android:text="@string/add_button"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:cornerRadius="20dp" />
 
 
     </LinearLayout>
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

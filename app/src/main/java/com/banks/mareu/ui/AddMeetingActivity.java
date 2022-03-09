@@ -50,8 +50,7 @@ public class AddMeetingActivity extends AppCompatActivity {
         binding.autoComplete.setAdapter(adapter);
 
         binding.autoComplete.setOnItemClickListener((adapterView, view, i, l) -> {
-             String item = adapterView.getItemAtPosition(i).toString();
-
+            String item = adapterView.getItemAtPosition(i).toString();
 
         });
 
@@ -65,10 +64,10 @@ public class AddMeetingActivity extends AppCompatActivity {
             DatePickerDialog picker;
             picker = new DatePickerDialog(AddMeetingActivity.this,
                     (view1, yearSelected, monthSelected, dayOfSelected) -> {
-                            Calendar cal = Calendar.getInstance();
-                            cal.set(yearSelected, monthSelected, dayOfSelected);
-                            binding.dateEditText.setText(dateSdf.format(cal.getTime()));
-                            }, actualYear, actualMonth, actualDay);
+                        Calendar cal = Calendar.getInstance();
+                        cal.set(yearSelected, monthSelected, dayOfSelected);
+                        binding.dateEditText.setText(dateSdf.format(cal.getTime()));
+                    }, actualYear, actualMonth, actualDay);
             picker.show();
         });
 
@@ -81,10 +80,10 @@ public class AddMeetingActivity extends AppCompatActivity {
             TimePickerDialog picker;
             picker = new TimePickerDialog(AddMeetingActivity.this,
                     (tp, hourSelected, minuteSelected) -> {
-                    Calendar calendar = Calendar.getInstance();
-                    calendar.set(Calendar.HOUR_OF_DAY, hourSelected );
-                    calendar.set(Calendar.MINUTE, minuteSelected);
-                    binding.timeEditText.setText(timeSdf.format(calendar.getTime()));
+                        Calendar calendar = Calendar.getInstance();
+                        calendar.set(Calendar.HOUR_OF_DAY, hourSelected);
+                        calendar.set(Calendar.MINUTE, minuteSelected);
+                        binding.timeEditText.setText(timeSdf.format(calendar.getTime()));
                     }, actualHour, actualMinutes, true);
             picker.show();
         });
@@ -93,13 +92,13 @@ public class AddMeetingActivity extends AppCompatActivity {
         binding.create.setOnClickListener(view -> {
             //Get Name
             String nameMeeting = Objects.requireNonNull(binding.nameMeeting.getText()).toString();
-            if(nameMeeting.isEmpty()) {
+            if (nameMeeting.isEmpty()) {
                 Toast.makeText(this, getString(R.string.error_name_meeting), Toast.LENGTH_SHORT).show();
                 return;
             }
             //Get Room
             String roomString = binding.autoComplete.getText().toString();
-            if(roomString.isEmpty()){
+            if (roomString.isEmpty()) {
                 Toast.makeText(this, getString(R.string.error_room), Toast.LENGTH_SHORT).show();
                 return;
             }
@@ -108,13 +107,13 @@ public class AddMeetingActivity extends AppCompatActivity {
 
             // Get date & time
             String date = binding.dateEditText.getText().toString();
-            if(date.isEmpty()) {
+            if (date.isEmpty()) {
                 Toast.makeText(this, getString(R.string.error_date), Toast.LENGTH_SHORT).show();
                 return;
             }
 
             String time = binding.timeEditText.getText().toString();
-            if(time.isEmpty()) {
+            if (time.isEmpty()) {
                 Toast.makeText(this, getString(R.string.error_time), Toast.LENGTH_SHORT).show();
                 return;
             }
@@ -127,7 +126,7 @@ public class AddMeetingActivity extends AppCompatActivity {
 
             //Get Participants
             String part = Objects.requireNonNull(binding.mailParticipant.getText()).toString();
-            if(part.isEmpty()) {
+            if (part.isEmpty()) {
                 Toast.makeText(this, getString(R.string.error_address), Toast.LENGTH_SHORT).show();
                 return;
             }

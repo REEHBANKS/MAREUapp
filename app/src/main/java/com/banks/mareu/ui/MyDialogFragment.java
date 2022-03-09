@@ -19,7 +19,6 @@ import com.banks.mareu.R;
 import com.banks.mareu.databinding.DialogFragmentBinding;
 import com.banks.mareu.model.Room;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
@@ -32,12 +31,17 @@ public class MyDialogFragment extends AppCompatDialogFragment {
     SimpleDateFormat dateSdfDialog = new SimpleDateFormat("dd/MM/yyyy", Locale.FRANCE);
 
 
-
-    public interface DataListener {
+    public interface FilterListenerInterface {
         void confirmFilter(Room room, String calendarMeetingFilter);
     }
 
-    public DataListener datalistener;
+    public FilterListenerInterface filterListenerInterface;
+
+    public interface ClearListenerInterface {
+        void clearFilter();
+    }
+
+    public ClearListenerInterface clearListenerInterface;
 
 
     @NonNull
@@ -79,22 +83,19 @@ public class MyDialogFragment extends AppCompatDialogFragment {
             @Override
             public void onClick(View view) {
                 Room room;
-                if(mDialogFragmentBinding.autoCompleteFilter.getText().toString().isEmpty()){
+                if (mDialogFragmentBinding.autoCompleteFilter.getText().toString().isEmpty()) {
                     room = null;
-                }
-                else {
-                    room =Room.valueOf(mDialogFragmentBinding.autoCompleteFilter.getText().toString());
+                } else {
+                    room = Room.valueOf(mDialogFragmentBinding.autoCompleteFilter.getText().toString());
                 }
 
                 String date = mDialogFragmentBinding.dateEditTextFilter.getText().toString();
 
-                datalistener.confirmFilter(room, date);
+                filterListenerInterface.confirmFilter(room, date);
                 Objects.requireNonNull(getDialog()).dismiss();
 
             }
         });
-
-
 
 
         mDialogFragmentBinding.clear.setOnClickListener(new View.OnClickListener() {
@@ -102,6 +103,9 @@ public class MyDialogFragment extends AppCompatDialogFragment {
             public void onClick(View view) {
                 mDialogFragmentBinding.dateEditTextFilter.getText().clear();
                 mDialogFragmentBinding.autoCompleteFilter.getText().clear();
+
+                clearListenerInterface.clearFilter();
+                Objects.requireNonNull(getDialog()).dismiss();
             }
         });
 
@@ -120,10 +124,17 @@ public class MyDialogFragment extends AppCompatDialogFragment {
     public void onAttach(Context context) {
         super.onAttach(context);
         try {
-            datalistener = (DataListener) getActivity();
+            filterListenerInterface = (FilterListenerInterface) getActivity();
+        } catch (ClassCastException e) {
+            Log.e(TAG, "onAttach: " + e.getMessage());
+        }
+
+        try {
+            clearListenerInterface = (ClearListenerInterface) getActivity();
         } catch (ClassCastException e) {
             Log.e(TAG, "onAttach: " + e.getMessage());
         }
     }
+
 
 }
