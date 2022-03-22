@@ -33,16 +33,10 @@ public class MyDialogFragment extends AppCompatDialogFragment {
 
     public interface FilterListenerInterface {
         void confirmFilter(Room room, String calendarMeetingFilter);
-    }
-
-    public FilterListenerInterface filterListenerInterface;
-
-    public interface ClearListenerInterface {
         void clearFilter();
     }
 
-    public ClearListenerInterface clearListenerInterface;
-
+    public FilterListenerInterface filterListenerInterface;
 
     @NonNull
     @Override
@@ -97,14 +91,13 @@ public class MyDialogFragment extends AppCompatDialogFragment {
             }
         });
 
-
         mDialogFragmentBinding.clear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 mDialogFragmentBinding.dateEditTextFilter.getText().clear();
                 mDialogFragmentBinding.autoCompleteFilter.getText().clear();
 
-                clearListenerInterface.clearFilter();
+                filterListenerInterface.clearFilter();
                 Objects.requireNonNull(getDialog()).dismiss();
             }
         });
@@ -128,13 +121,5 @@ public class MyDialogFragment extends AppCompatDialogFragment {
         } catch (ClassCastException e) {
             Log.e(TAG, "onAttach: " + e.getMessage());
         }
-
-        try {
-            clearListenerInterface = (ClearListenerInterface) getActivity();
-        } catch (ClassCastException e) {
-            Log.e(TAG, "onAttach: " + e.getMessage());
-        }
     }
-
-
 }

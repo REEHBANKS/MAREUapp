@@ -20,11 +20,13 @@
 
         <TextView
             android:id="@+id/tittleAddPageText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:gravity="center"
+            android:background="#2E5F95"
             android:layout_marginTop="15dp"
-            android:text="Nouvelle réunion"
-            android:textColor="@color/black"
+            android:text="@string/new_meeting"
+            android:textColor="#F7F8FA"
             android:textSize="30sp"
             android:textStyle="bold">
 
@@ -41,10 +43,13 @@
                 android:id="@+id/nameMeeting"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#6DA7E6"
+                android:background="@drawable/frame_blue"
+                android:paddingBottom="20dp"
                 android:ems="10"
+                android:gravity="bottom"
                 android:hint="@string/meeting_name"
                 android:inputType="text"
+                android:textColor="#2E5F95"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -57,7 +62,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:textColorHint="@color/black"
-            app:boxBackgroundColor="#6DA7E6"
+            android:background ="@drawable/frame_blue"
             app:boxBackgroundMode="outline"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -83,39 +88,51 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-
-        <EditText
-            android:id="@+id/date_edit_text"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="30dp"
-            android:background="@drawable/frame_black"
-            android:backgroundTint="#6DA7E6"
-            android:drawableStart="@drawable/calendar_black"
-            android:drawablePadding="5dp"
-            android:ems="8"
-            android:gravity="center"
-            android:hint="@string/date_sign"
-            android:inputType="date"
-            android:textColor="@color/black"
-            android:textColorHint="@color/black" />
+            android:padding="10dp"
+            android:orientation="horizontal">
 
-        <EditText
-            android:id="@+id/time_edit_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:background="@drawable/frame_black"
-            android:backgroundTint="#6DA7E6"
-            android:drawableStart="@drawable/ic_baseline_more_time_24"
-            android:drawablePadding="5dp"
-            android:ems="6"
-            android:gravity="center"
-            android:hint="@string/time_sign"
-            android:inputType="date"
-            android:textColor="@color/black"
-            android:textColorHint="@color/black" />
+            <EditText
+                android:id="@+id/date_edit_text"
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/frame_blue"
+                android:drawableStart="@drawable/calendar_black"
+                android:drawablePadding="2dp"
+                android:ems="8"
+                android:gravity="center"
+                android:hint="@string/date_sign"
+                android:inputType="date"
+                android:textColor="#2E5F95"
+                android:textStyle="bold"
+                android:textColorHint="@color/black" />
+
+            <EditText
+                android:id="@+id/time_edit_text"
+                android:layout_width="wrap_content"
+                android:layout_height="70dp"
+
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/frame_blue"
+                android:drawableStart="@drawable/ic_baseline_more_time_24"
+                android:gravity="center"
+                android:drawablePadding="5dp"
+                android:ems="79"
+                android:hint="@string/time_sign"
+                android:inputType="date"
+                android:textColor="#2E5F95"
+                android:textStyle="bold"
+                android:textColorHint="@color/black" />
+
+        </LinearLayout>
+
+
+
 
 
         <com.google.android.material.textfield.TextInputLayout
@@ -129,13 +146,15 @@
                 android:id="@+id/mailParticipant"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#6DA7E6"
+                android:background ="@drawable/frame_blue"
                 android:ems="10"
                 android:hint="@string/mails_participants"
                 android:inputType="textMultiLine"
                 android:lines="5"
+                android:textSize="18sp"
                 android:textStyle="bold"
-                android:minLines="5" />
+                android:minLines="5"
+                android:gravity="top"/>
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -144,12 +163,13 @@
             android:id="@+id/create"
             android:layout_width="200sp"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/teal_700"
+            android:backgroundTint="#2E5F95"
             android:layout_gravity="center"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="50dp"
             android:background="@drawable/buttonstyle"
             android:text="@string/add_button"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
+            android:textSize="18sp"
             android:textStyle="bold"
             app:cornerRadius="20dp" />
 

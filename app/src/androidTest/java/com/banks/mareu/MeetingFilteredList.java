@@ -69,7 +69,6 @@ public class MeetingFilteredList {
         // Then: We check if the button filter is displayed
         onView(withId(R.id.button_actived_filter)).check(matches(withEffectiveVisibility(ViewMatchers
                 .Visibility.VISIBLE)));
-
         // We choose the room : "yoshi"
         onView(withId(R.id.auto_complete_filter)).perform(click());
         onData(Matchers.anything())
@@ -77,108 +76,76 @@ public class MeetingFilteredList {
                 .atPosition(1)
                 .perform(click());
         onView(withId(R.id.auto_complete_filter)).check(matches(withText("YOSHI")));
-
         // We click on the button "Filter"
         onView(withId(R.id.button_actived_filter)).perform(click());
-
         // We check if the list has two meeting and if the room "YOSHI" is visible.
         onView(allOf(withId(R.id.list_meeting), hasFocus()))
-                .check(matches(hasChildCount(2)));
-
+                .check(matches(hasChildCount(1)));
         // When: Click on button filter
         onView(withId(R.id.filter_toolbar)).perform(click());
-
         // We click on the button "Clear"
         onView(withId(R.id.clear)).perform(click());
-
         // We check if the list is complete
         onView(allOf(withId(R.id.list_meeting), hasFocus())).check(withItemCount(ITEMS_COUNT));
     }
 
     @Test
     public void CheckIfTheFilterButtonByDateIsCorrectAndIfTheButtonClearWorks(){
-        String meetingTittle = "Dummy Meeting";
-        String meetingAddressMail = "test@test.com";
-
-        // When: Click on button add
-        onView(withId(R.id.add_meeting)).perform(click());
-        // Then: We check if the title of the add page is displayed
-        onView(withId(R.id.tittleAddPageText)).check(matches(withEffectiveVisibility(ViewMatchers
-                .Visibility.VISIBLE)));
-
-        // We write a tittle of new meeting
-        onView(withId(R.id.nameMeeting)).perform(typeText(meetingTittle));
-
-        // We choose the room : "yoshi"
-        onView(withId(R.id.auto_complete)).perform(click());
-        onData(Matchers.anything())
-                .inRoot(RootMatchers.isPlatformPopup())
-                .atPosition(1)
-                .perform(click());
-        onView(withId(R.id.auto_complete)).check(matches(withText("YOSHI")));
-
-        // We choose the time
-        onView(withId(R.id.date_edit_text)).perform(click());
-        onView(withId(R.id.date_edit_text)).perform(click());
-        onView(isAssignableFrom(DatePicker.class))
-                .perform(setDate(1980, 10, 30));
-        onView(withId(android.R.id.button1)).perform(click());
-        onView(withId(R.id.date_edit_text)).check(matches(withText("30/10/1980")));
-
-        // We choose the date
-        onView(withId(R.id.time_edit_text)).perform(click());
-        onView(withId(R.id.time_edit_text)).perform(click());
-        onView(isAssignableFrom(TimePicker.class)).perform(setTime(10,30));
-        onView(withId(android.R.id.button1)).perform(click());
-        onView(withId(R.id.time_edit_text)).check(matches(withText("10:30")));
-
-        // We write the address mail
-        onView(withId(R.id.mailParticipant)).perform(typeText(meetingAddressMail));
-        Espresso.closeSoftKeyboard();
-
-        // We click on the button "AJOUTER"
-        onView(withId(R.id.create)).perform(click());
-
         // When: Click on button filter
         onView(withId(R.id.filter_toolbar)).perform(click());
         // Then: We check if the button filter is displayed
         onView(withId(R.id.button_actived_filter)).check(matches(withEffectiveVisibility(ViewMatchers
                 .Visibility.VISIBLE)));
-
         // We choose the date
         onView(withId(R.id.date_edit_text_filter)).perform(click());
         onView(withId(R.id.date_edit_text_filter)).perform(click());
         onView(isAssignableFrom(DatePicker.class))
-                .perform(setDate(1980, 10, 30));
+                .perform(setDate(2022, 4, 1));
         onView(withId(android.R.id.button1)).perform(click());
-        onView(withId(R.id.date_edit_text_filter)).check(matches(withText("30/10/1980")));
-
+        onView(withId(R.id.date_edit_text_filter)).check(matches(withText("01/04/2022")));
         // We click on the button "Filter"
         onView(withId(R.id.button_actived_filter)).perform(click());
-
-        // We check if the list has two meeting and if the room "YOSHI" is visible.
+        // We check if the list has one meeting
         onView(allOf(withId(R.id.list_meeting), hasFocus()))
-                .check(matches(hasChildCount(1)));
-
+                .check(matches(hasChildCount(2)));
         // When: Click on button filter
         onView(withId(R.id.filter_toolbar)).perform(click());
-
         // We click on the button "Clear"
         onView(withId(R.id.clear)).perform(click());
-
         // We check if the list is complete
-        onView(allOf(withId(R.id.list_meeting), hasFocus())).check(withItemCount(ITEMS_COUNT+1));
-
+        onView(allOf(withId(R.id.list_meeting), hasFocus())).check(withItemCount(ITEMS_COUNT));
     }
-
-
-
-
-
-
-
-
-
-
-
+    @Test
+    public void CheckIfTheFilterButtonByDateAndButtonByRoomAreCorrect(){
+        // When: Click on button filter
+        onView(withId(R.id.filter_toolbar)).perform(click());
+        // Then: We check if the button filter is displayed
+        onView(withId(R.id.button_actived_filter)).check(matches(withEffectiveVisibility(ViewMatchers
+                .Visibility.VISIBLE)));
+        // We choose the room : "yoshi"
+        onView(withId(R.id.auto_complete_filter)).perform(click());
+        onData(Matchers.anything())
+                .inRoot(RootMatchers.isPlatformPopup())
+                .atPosition(1)
+                .perform(click());
+        onView(withId(R.id.auto_complete_filter)).check(matches(withText("YOSHI")));
+        // We choose the date
+        onView(withId(R.id.date_edit_text_filter)).perform(click());
+        onView(withId(R.id.date_edit_text_filter)).perform(click());
+        onView(isAssignableFrom(DatePicker.class))
+                .perform(setDate(2022, 4, 1));
+        onView(withId(android.R.id.button1)).perform(click());
+        onView(withId(R.id.date_edit_text_filter)).check(matches(withText("01/04/2022")));
+        // We click on the button "Filter"
+        onView(withId(R.id.button_actived_filter)).perform(click());
+        // We check if the list has one meeting
+        onView(allOf(withId(R.id.list_meeting), hasFocus()))
+                .check(matches(hasChildCount(1)));
+        // When: Click on button filter
+        onView(withId(R.id.filter_toolbar)).perform(click());
+        // We click on the button "Clear"
+        onView(withId(R.id.clear)).perform(click());
+        // We check if the list is complete
+        onView(allOf(withId(R.id.list_meeting), hasFocus())).check(withItemCount(ITEMS_COUNT));
+    }
 }

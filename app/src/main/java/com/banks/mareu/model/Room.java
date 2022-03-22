@@ -1,7 +1,6 @@
 package com.banks.mareu.model;
 
 public enum Room {
-
     MARIO("#303030"),
     YOSHI("#57d53b"),
     LUIGI("#175732"),

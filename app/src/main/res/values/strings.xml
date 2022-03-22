@@ -15,4 +15,5 @@
     <string name="mails_participants">Adresses mails des participants</string>
     <string name="time_sign">__ : __</string>
     <string name="add_button">Ajouter</string>
+    <string name="new_meeting">Nouvelle réunion</string>
 </resources>

@@ -10,14 +10,10 @@ public class DummyMeetingApiService implements MeetingApiService {
 
     private final ArrayList<Meeting> meetings = new ArrayList<>( DummyMeetingGenerator.generateMeeting());
 
-
-
     @Override
     public List<Meeting> getMeetings() {
         return meetings;
     }
-
-
 
     @Override
     public void deleteMeeting(Meeting meeting) {
@@ -28,7 +24,6 @@ public class DummyMeetingApiService implements MeetingApiService {
     public void createMeeting(Meeting meeting) {
         meetings.add(meeting);
     }
-
 
     @Override
     public List<Meeting> filterMeetings(List<Meeting> listMeetings, Room selectedRoom, String selectedDate) {

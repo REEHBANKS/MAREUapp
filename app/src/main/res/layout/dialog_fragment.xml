@@ -48,12 +48,13 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="30dp"
         android:layout_gravity="center"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         app:startIconDrawable="@drawable/ic_baseline_meeting_room_24"
         app:startIconTint="@color/white"
-        app:boxBackgroundColor="#3A80CD"
+        app:boxBackgroundColor="#2E5F95"
+        android:textColorHint="@color/white"
+        android:background="@drawable/buttondate"
         app:boxBackgroundMode="outline"
-        android:outlineSpotShadowColor="@color/white"
 
         >
 

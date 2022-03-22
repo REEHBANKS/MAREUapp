@@ -1,6 +1,8 @@
 package com.banks.mareu.ui;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,7 +19,7 @@ import com.banks.mareu.service.MeetingApiService;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ListMeetingActivity extends AppCompatActivity implements RecyclerViewClickInterface, MyDialogFragment.FilterListenerInterface, MyDialogFragment.ClearListenerInterface {
+public class ListMeetingActivity extends AppCompatActivity implements RecyclerViewClickInterface, MyDialogFragment.FilterListenerInterface{
 
     public MeetingApiService mMeetingApiService;
     ActivityListMeetingBinding binding;
@@ -48,6 +50,18 @@ public class ListMeetingActivity extends AppCompatActivity implements RecyclerVi
         setSupportActionBar(binding.myToolbar);
         mMeetingApiService = DI.getMeetingApiService();
         initUi();
+
+        binding.listMeeting.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                if(dy > 0) {
+                    binding.addMeeting.hide();
+                } else {
+                    binding.addMeeting.show();
+                }
+                super.onScrolled(recyclerView, dx, dy);
+            }
+        });
 
 
     }

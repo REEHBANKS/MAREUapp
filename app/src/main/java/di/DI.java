@@ -10,8 +10,6 @@ public class DI {
     public static MeetingApiService getMeetingApiService()
     {return service;}
 
-
-
 }
 
 

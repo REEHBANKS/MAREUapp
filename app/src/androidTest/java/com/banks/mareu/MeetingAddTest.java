@@ -78,7 +78,7 @@ public class MeetingAddTest {
     }
 
     @Test
-    public void CheckIfWeViewTheAddPageIsDisplay(){
+    public void CheckIfWeViewTheAddPageIsDisplayWithNewMeeting(){
         String meetingTittle = "Dummy Meeting";
         String calendar = "03/03/2022";
         String meetingAddressMail = "test@test.com";
@@ -94,6 +94,7 @@ public class MeetingAddTest {
 
         // We write a tittle of new meeting
         onView(withId(R.id.nameMeeting)).perform(typeText(meetingTittle));
+        Espresso.closeSoftKeyboard();
 
         // We choose the room : "yoshi"
         onView(withId(R.id.auto_complete)).perform(click());
@@ -127,47 +128,5 @@ public class MeetingAddTest {
 
         // We check if a new meeting is added
         onView(allOf(withId(R.id.list_meeting), hasFocus())).check(withItemCount(ITEMS_COUNT+1));
-
-
-
-
-
-
-
-
-
-
-
-
-
-        // onView(isAssignableFrom(TimePicker.class)).perform(
-               // PickerActions.setTime(
-                    //    calendar.get(Calendar.HOUR_OF_DAY),
-                       // calendar.get(Calendar.MINUTE) + 2
-                //)
-      //  );
-
-
-
-
-
-
-
-       // onView(withId(R.id.mailParticipant)).perform(typeText(meetingAddressMail));
-
-
-
-
-       //
-
-      // onData(allOf(is(instanceOf(String.class)),is(roomString))).perform(click());
-     //  onView(withId(R.id.auto_complete)).check(matches(withSpinnerText(containsString(roomString))));
-
-
     }
-
-
-
-
-
 }
