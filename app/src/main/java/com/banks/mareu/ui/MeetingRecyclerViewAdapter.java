@@ -42,7 +42,7 @@ public class MeetingRecyclerViewAdapter extends RecyclerView.Adapter<MeetingRecy
     }
 
     @Override
-    public void onBindViewHolder(MeetingRecyclerViewAdapter.MeetingHolder holder,  int position) {
+    public void onBindViewHolder(MeetingHolder holder, int position) {
         Meeting meeting = mMeeting.get(position);
         holder.binding.itemMeetingName.setText(meeting.getMeetingName());
         holder.binding.itemTime.setText(meeting.getStringDate());
@@ -53,7 +53,7 @@ public class MeetingRecyclerViewAdapter extends RecyclerView.Adapter<MeetingRecy
         holder.binding.itemListDeleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mRecyclerViewClickInterface.onDeleteClick(meeting, position);
+              mRecyclerViewClickInterface.onDeleteClick(meeting );
             }
         });
 

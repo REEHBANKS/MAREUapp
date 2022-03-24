@@ -86,10 +86,10 @@ public class ListMeetingActivity extends AppCompatActivity implements RecyclerVi
     }
 
     @Override
-    public void onDeleteClick(Meeting meeting, int position) {
+    public void onDeleteClick(Meeting meeting) {
         mMeetingApiService.deleteMeeting(meeting);
         listMeetings.remove(meeting);
-        mAdapter.notifyItemRemoved(position);
+        mAdapter.notifyDataSetChanged();
     }
 
     public void onStart() {
